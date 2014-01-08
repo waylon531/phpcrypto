@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', true);
+error_reporting(E_ALL ^ E_NOTICE);
 ini_set('max_execution_time', 300);
 $hash = $_POST['hash'];
 echo $hash;
@@ -12,18 +14,28 @@ $GLOBALS['increment'] = 0;
 $GLOBALS['verify'] = false;
 $GLOBALS['success'] = 0;
 $array = array();
-if $_POST['lowercase'] = true {
+if ($_POST['lowercase'] == true) {
     $increments = $increments + 26;
-    array_merge($array, $lowercase);
+    $array = array_merge($array, $lowercase);
 }
-if $_POST['uppercase'] = true {
+if ($_POST['uppercase'] == true) {
     $increments = $increments + 26;  
-    array_merge($array, $lowercase);
+    $array = array_merge($array, $uppercase);
 }
-if $_POST['numbers'] = true {
+if ($_POST['numbers'] == true) {
     $increments = $increments + 10;  
-    array_merge($array, $lowercase);
+    $array = array_merge($array, $numbers);
 }
+/*echo $increments;
+echo $GLOBALS['increment'];
+while ($GLOBALS['increment'] < $increments) {
+    echo $array[$GLOBALS['increment']];
+    echo $lowercase[$GLOBALS['increment']];
+    ++$GLOBALS['increment'];
+    echo $GLOBALS['increment'];
+}*/
+
+
 $incrementvalue = $increments - 1;
 while ($GLOBALS['increment'] < $increments and $GLOBALS['verify'] == false) {
     if (md5($array[$GLOBALS['increment']]) == $hash) {
@@ -32,6 +44,7 @@ while ($GLOBALS['increment'] < $increments and $GLOBALS['verify'] == false) {
     }
         ++$GLOBALS['increment'];
 }
+
 $GLOBALS['increment'] = 0;
 $GLOBALS['increment2'] = 0;
 while ($GLOBALS['increment2'] < $increments and $GLOBALS['verify'] == false) {
@@ -109,7 +122,10 @@ while ($GLOBALS['increment5'] < $increments and $GLOBALS['verify'] == false) {
 
 }
 echo '<p>done</p>';
-echo '<form name="input" action="/bruteforce.php" method="post">
+echo '<form name="input" action="bruteforce.php" method="post">
+<input type="checkbox" name="lowercase" value="true">Check lowercase letters<br>
+<input type="checkbox" name="uppercase" value="true">Check uppercase letters<br>
+<input type="checkbox" name="numbers" value="true">Check numbers<br>
 <input type="text" name="hash">
 <input type="submit" value="SUBMIT"';
         echo ">

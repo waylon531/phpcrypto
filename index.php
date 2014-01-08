@@ -1,5 +1,5 @@
 <?php
-echo '<form name="input" action="/bruteforce.php" method="post">
+echo '<form name="input" action="bruteforce.php" method="post">
 <input type="checkbox" name="lowercase" value="true">Check lowercase letters<br>
 <input type="checkbox" name="uppercase" value="true">Check uppercase letters<br>
 <input type="checkbox" name="numbers" value="true">Check numbers<br>
