@@ -1,1 +1,1 @@
-Proof of concept, can only crack md5 hashes that are 5 characters or less, and the only characters allowed are lowercase letters
+Proof of concept, can only crack md5 hashes that are 5 characters or less
